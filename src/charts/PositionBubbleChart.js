@@ -74,6 +74,7 @@ function PositionBubbleChart({ field }) {
       .append('option')
       .text(function (d) { return d; })
       .attr("value", function (d) { return d; }) 
+      .attr('class','Michael');
     
       d3.select("#selectButton").on("change", function (d) {
         var selectedYear = d3.select(this).property("value")
@@ -93,11 +94,11 @@ function PositionBubbleChart({ field }) {
     let xLegendStart = 20; 
     let yLegendStart = 20;
     let yGap = 21;
-    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart).attr("r", 10).style("fill", "#FF7F50")
-    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + yGap).attr("r", 10).style("fill", "#1F77B4")
-    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 2 * yGap).attr("r", 10).style("fill", "#2CA02C")
-    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 3 * yGap).attr("r", 10).style("fill", "#D62727")
-    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 4 * yGap).attr("r", 10).style("fill", "#9468BD")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart).attr("r", 8).style("fill", "#FF7F50")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + yGap).attr("r", 8).style("fill", "#1F77B4")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 2 * yGap).attr("r", 8).style("fill", "#2CA02C")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 3 * yGap).attr("r", 8).style("fill", "#D62727")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 4 * yGap).attr("r", 8).style("fill", "#9468BD")
     svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart).text("PG").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart + yGap).text("SG").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart + 2 * yGap).text("SF").style("font-size", "15px").attr("alignment-baseline","middle")

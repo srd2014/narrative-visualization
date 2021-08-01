@@ -8,16 +8,8 @@ function CourtChart({ width, height }) {
 
   useEffect(() => {
     const svg = d3.select(ref.current)
-      .attr("width", width)
-      .attr("height", height)
-  }, []);
-
-  useEffect(() => {
-    draw();
-  }, []);
-
-  const draw = () => {
-    const svg = d3.select(ref.current);
+    .attr("width", width)
+    .attr("height", height)
 
     const arcGenerator = (N) => d3.arc()
       .outerRadius(N * 7.5)
@@ -25,22 +17,22 @@ function CourtChart({ width, height }) {
       .startAngle(-Math.PI / 2)
       .endAngle(Math.PI / 2);
 
-    const nbaArc = svg.append("path")
+    svg.append("path")
       .attr("transform", "translate(300,275)")
       .attr("d", arcGenerator(23.75)())
       .attr("fill", "#00429d")
 
-    const wnbaArc = svg.append("path")
+    svg.append("path")
       .attr("transform", "translate(300,275)")
       .attr("d", arcGenerator(21.65)())
       .attr("fill", "#2975b2");
 
-    const ncaaArc = svg.append("path")
+    svg.append("path")
       .attr("transform", "translate(300,275)")
       .attr("d", arcGenerator(20.75)())
       .attr("fill", "#51a8c6");
 
-    const highSchoolArc = svg.append("path")
+    svg.append("path")
       .attr("transform", "translate(300,275)")
       .attr("d", arcGenerator(19.75)())
       .attr("fill", "#7adcdc");
@@ -70,8 +62,8 @@ function CourtChart({ width, height }) {
         },
         type: annotationCalloutCircle,
         subject: {
-          radius: 3,         // circle radius
-          radiusPadding: 0   // white space around circle befor connector
+          radius: 3,         
+          radiusPadding: 0   
         },
         color: ["#2975b2"],
         x: 197,
@@ -86,8 +78,8 @@ function CourtChart({ width, height }) {
         },
         type: annotationCalloutCircle,
         subject: {
-          radius: 3,         // circle radius
-          radiusPadding: 0   // white space around circle befor connector
+          radius: 3,         
+          radiusPadding: 0   
         },
         color: ["#51a8c6"],
         x: 375,
@@ -102,8 +94,8 @@ function CourtChart({ width, height }) {
         },
         type: annotationCalloutCircle,
         subject: {
-          radius: 3,         // circle radius
-          radiusPadding: 0   // white space around circle befor connector
+          radius: 3,         
+          radiusPadding: 0   
         },
         color: ["#51a8c6"],
         x: 390,
@@ -113,7 +105,6 @@ function CourtChart({ width, height }) {
       },
     ]
 
-    // Add annotation to the chart
     const makeAnnotations =
       annotation()
         .annotations(annotations);
@@ -121,7 +112,7 @@ function CourtChart({ width, height }) {
     d3.select("svg")
       .append("g")
       .call(makeAnnotations)
-  }
+  });
 
 
   return (

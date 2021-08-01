@@ -35,9 +35,6 @@ const data = [
   buildDataSet("3PA")
 ]
 
-console.log(data)
-
-
 var width = 1000;
 var height = 400;
 var margin = 50;
@@ -84,6 +81,17 @@ function TwoPtThreePtChart() {
       .append("g")
       .attr("transform", `translate(${margin}, ${margin})`);
 
+    let xLegendStart = 700; 
+    let yLegendStart = 20;
+    let yGap = 21;
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart).attr("r", 6).style("fill", "#FF7F50")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + yGap).attr("r", 6).style("fill", "#1F77B4")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 2 * yGap).attr("r", 6).style("fill", "#D62727")
+    svg.append("circle").attr("cx",xLegendStart).attr("cy",yLegendStart + 3 * yGap).attr("r", 6).style("fill", "#2CA02C")
+    svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart).text("2-pt Attempts").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart + yGap).text("2-pt Made").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart + 2 * yGap).text("3-pt Attempts").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", xLegendStart + 10).attr("y", yLegendStart + 3 * yGap).text("3-pt Made").style("font-size", "15px").attr("alignment-baseline","middle")
     var line = d3.line()
       .x(d => xScale(d.date))
       .y(d => yScale(d.value));
@@ -184,7 +192,6 @@ function TwoPtThreePtChart() {
       .attr("y", 15)
       .attr("transform", "rotate(-90)")
       .attr("fill", "#000")
-      .text("Total values");
 
 
       const annotations = [
